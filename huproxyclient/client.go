@@ -92,6 +92,7 @@ func main() {
 	dialer := websocket.Dialer{}
 	dialer.TLSClientConfig = new(tls.Config)
 	dialer.Proxy =  http.ProxyFromEnvironment
+	dialer.HandshakeTimeout = 60 * time.Second
 	if *insecure {
 		dialer.TLSClientConfig.InsecureSkipVerify = true
 	}
