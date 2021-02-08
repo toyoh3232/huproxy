@@ -91,6 +91,7 @@ func main() {
 
 	dialer := websocket.Dialer{}
 	dialer.TLSClientConfig = new(tls.Config)
+	dialer.Proxy =  http.ProxyFromEnvironment
 	if *insecure {
 		dialer.TLSClientConfig.InsecureSkipVerify = true
 	}
